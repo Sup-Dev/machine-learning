@@ -14109,9 +14109,8 @@ As we can see from the above plots. Both Adaboost and LinearSVC perform on par a
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong> 
-Adaboost is a boosting type ensemble learner. This method works by combining multiple individual "weak" learning hypotheses to create one strong model. Each weak hypothesis used is better at classifying the data than random chance. However, it's the combination of all of these independent weak learning hypotheses what makes the model more capable of predicting accurately on unseen data than each of the individual hypothesis would.</p>
-<p>This algorithm is trained iteratively. During each training iteration, the model attempts to correctly classify the training data. Based on how well it performed during the iteration, the algorithm assigns higher weights to the observations that it was unable to classify correctly. On the next training iteration, the algorithm focuses on those more complex, initially missclassified observations, and tries to classify them correctly. Again based on the results of this training iteration Adaboost assigns higher weights to those observations that were missclassified. This process is repeated for a number of iterations defined by the user in an attempt to find the set of weighted hypotheses that combined will perform best on unseen data.</p>
-<p>Finally, to make predictions, Adaboost uses the weak independent hypotheses on which it was trained during each iteration and developsindividual predictions that are then weighted accordingly to come up with the most probable single strong prediction.</p>
+Adaboost is a type of ensemble learner. In Adaboost, like other ensemble learners we first create simple models and combine them to make a more complex model. Also, each simple model is better than random.</p>
+<p>This process of combining models is carried out iteratively. It works by looking at the missclassified data points and increases it's weight, this process is carried out after every iteration. This finally results in a complex classifier once they are combined.</p>
 
 </div>
 </div>
@@ -14295,11 +14294,11 @@ From the scores, it can be seen that both the unoptimized and optimized models p
 <p><strong>Answer:</strong>
 I have listed features based on there level of importance:</p>
 <ol>
-<li><p><strong>Age:</strong> Younger people are usually less experienced than older people and therefore also paid less.</p>
+<li><p><strong>Age:</strong> Age often will indicate experience of a person in his field.</p>
 </li>
-<li><p><strong>Hours per week:</strong> Assuming that two people have the same hourly rate, the one that works more hours has the potential of earning more money and is more likely to be making more than 50K.</p>
+<li><p><strong>Hours per week:</strong> As the pay is based on hours per week. It makes sense to assume that someone putting in more hours in the same work would make more.</p>
 </li>
-<li><p><strong>Education level:</strong> People with higher education also have better chances of finding higher paying jobs</p>
+<li><p><strong>Education level:</strong> People with higher education levels will be more specialized and hence paid higher for their skills</p>
 </li>
 <li><p><strong>Native country:</strong> This could be a good indicator of the per capita income.</p>
 </li>
@@ -14797,7 +14796,8 @@ F-score on testing data: 0.7041
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong>
-educing the data to only five features also reduces the F-score and accuracy of the predictions. I believe this is due to the classifier not being able to accurately capture the complexity of the data and therefore not being able to properly generalize. However, if the training time was an important factor, reducing the number of features should reduce training time. Furthermore, since the impact on the accuracy and/or the F-scores is not too large, the small increase in classification error could be an appropriate tradeoff in that scenario.</p>
+As we can see, the accuracy and F-scores have dropped on reducing the number of features. The reason for this is that the complexity of our model has been reduced and is doesn't capture the whole story as before.</p>
+<p>If training time was a factor, then reducing would be fine as the difference is not as much.</p>
 
 </div>
 </div>
